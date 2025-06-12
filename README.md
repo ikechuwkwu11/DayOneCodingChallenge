@@ -1,19 +1,39 @@
-Flask Staff Token Authentication API
-This project is a lightweight authentication system for staff users using Flask, Flask-Login, and token-based access control. It includes secure registration, login, logout, and a protected route that requires a valid token.
+# 🔐 Flask Staff Token Authentication API
+A lightweight and secure Flask-based authentication system for staff users using token-based access control. This project supports registration, login, logout, and protected route access using time-limited tokens and hashed passwords.
 
-Features
-- User registration and login with hashed passwords (bcrypt)
-- Token generation on login, valid for 24 hours
-- Token-based route protection
+## 🚀 Features
+- User registration and login with hashed passwords (via Flask-Bcrypt)
+- Token generation on login (valid for 24 hours)
+- Protected routes that require a valid token
 - Secure logout that deactivates the token
-- Uses Flask-Login for session and user management
-- SQLite database via SQLAlchemy
+- Session management using Flask-Login
+- Lightweight database using SQLite via SQLAlchemy
 
-Tech Stack
-- Python 
-- Flask
-- Flask-Login
-- Flask-Bcrypt
-- SQLAlchemy
-- SQLite (default database)
-- Secrets (for token generation
+## 🧰 Tech Stack
+- Purpose	Library/Tool
+- Backend Framework	Flask
+- Session Management	Flask-Login
+- Password Hashing	Flask-Bcrypt
+- Token Generation	Python secrets
+- ORM & DB	SQLAlchemy + SQLite
+
+## 📫 API Endpoints
+- Method	Route	Description	Auth Required
+- POST	/register	Register a new staff user	
+- POST	/login	Login and receive a token	
+- GET	/protected	Access a token-protected resource	
+- POST	/logout	Logout and deactivate token	
+
+Tokens expire after 24 hours and are generated using Python’s built-in secrets module for cryptographic safety.
+
+## 🛡️ Security Highlights
+- Passwords are hashed with bcrypt before storage
+- Tokens are randomly generated and securely stored
+- Token expiration enforced via timestamp comparison
+- Uses Flask-Login to manage active sessions
+
+## 📌 To-Do / Future Improvements
+- Add JWT support as an alternative
+- Add user roles (admin, staff, viewer)
+- Admin dashboard or analytics route
+- Unit tests with pytest or unittest
