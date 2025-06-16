@@ -67,7 +67,7 @@ def logout():
     try:
         Token.query.filter_by(user_id=current_user.id, is_active=True).update({"is_active": False})
         db.session.commit()
-        load_user()
+        logout_user()
         return jsonify({'message':'You have been logout'}),200
     except Exception as e:
         return jsonify({'message':'internal server error','error':str(e)}),500
