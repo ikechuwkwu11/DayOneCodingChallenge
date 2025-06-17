@@ -10,19 +10,23 @@ A lightweight and secure Flask-based authentication system for staff users using
 - Lightweight database using SQLite via SQLAlchemy
 
 ## 🧰 Tech Stack
-- Purpose	Library/Tool
-- Backend Framework	Flask
-- Session Management	Flask-Login
-- Password Hashing	Flask-Bcrypt
-- Token Generation	Python secrets
-- ORM & DB	SQLAlchemy + SQLite
+| Purpose            | Library/Tool        |
+| ------------------ | ------------------- |
+| Backend Framework  | Flask               |
+| Session Management | Flask-Login         |
+| Password Hashing   | Flask-Bcrypt        |
+| Token Generation   | Python `secrets`    |
+| ORM + Database     | SQLAlchemy + SQLite |
+
 
 ## 📫 API Endpoints
-- Method	Route	Description	Auth Required
-- POST	/register	Register a new staff user	
-- POST	/login	Login and receive a token	
-- GET	/protected	Access a token-protected resource	
-- POST	/logout	Logout and deactivate token	
+| Method | Route        | Description                       | Auth Required |
+| ------ | ------------ | --------------------------------- | ------------- |
+| POST   | `/register`  | Register a new staff user         | ❌             |
+| POST   | `/login`     | Log in and receive a token        | ❌             |
+| GET    | `/protected` | Access a token-protected resource | ✅             |
+| POST   | `/logout`    | Log out and deactivate token      | ✅             |
+	
 
 Tokens expire after 24 hours and are generated using Python’s built-in secrets module for cryptographic safety.
 
